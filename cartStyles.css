@@ -1,0 +1,221 @@
+:root {
+    --primaryOrange: #f15946;
+    --primaryBlack: #2b2828;
+    --primaryWhite: #f4eded;
+    --hoverOrange: #f15946;
+}
+
+body {
+    margin: 0;
+    font-family: Montserrat;
+    background-color: var(--primaryWhite);
+    min-height: 100vh;
+}
+
+@media only screen and (min-width: 1024px) {
+    .titleMenu {
+        display: grid;
+        grid-template-columns: 3fr 1fr 1fr 1fr;
+        background-color: var(--primaryBlack);
+        color: var(--primaryWhite);
+        height: 10vh;
+    }
+
+    .item {
+        justify-content: center;
+        justify-self: center;
+        width: 100%;
+        height: 100%;
+        transition: 0.5s;
+    }
+
+    .item:hover {
+        background-color: var(--hoverOrange);
+    }
+
+    .yourCart {
+        background-color: var(--primaryOrange);
+        color: var(--primaryBlack);
+        height: 10vh;
+    }
+
+    .cartItem {
+        width: 60vw;
+        height: 10vh;
+        margin: 5vh auto 5vh auto;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        font-size: 1.3rem;
+        border: var(--primaryOrange) 0.2rem solid;
+        border-radius: 64px;
+        span {
+            margin: auto;
+        }
+    }
+
+    .itemQuantity {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+        font-family: "Montserrat";
+        color: var(--primaryBlack);
+        text-align: center;
+        margin: auto;
+    }
+
+    .deleteItem {
+        height: 2rem;
+        width: 2rem;
+        text-align: center;
+        background-color: white;
+        margin: auto;
+        border: none;
+        background-color: var(--primaryWhite);
+        transition: all 0.3s;
+    }
+
+    .totalPriceDiv {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        bottom: 0;
+        padding: 2rem 0 2rem 0;
+        position: fixed;
+        text-align: center;
+        width: 100vw;
+        background-color: var(--primaryOrange);
+        color: var(--primaryBlack);
+        font-size: 1.4rem;
+    }
+
+    .paymentButton {
+        width: 50%;
+        background-color: var(--primaryWhite);
+        border: none;
+        border-radius: 8px;
+        font-family: "Montserrat";
+        font-size: 1rem;
+        transition: all 0.3s;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .titleMenu {
+        display: grid;
+        grid-template-columns: 3fr 1fr 1fr 1fr;
+        background-color: var(--primaryBlack);
+        color: var(--primaryWhite);
+        height: 10vh;
+    }
+
+    .item {
+        justify-content: center;
+        justify-self: center;
+        width: 100%;
+        height: 100%;
+        transition: 0.5s;
+    }
+
+    .item:hover {
+        background-color: var(--hoverOrange);
+    }
+
+    .yourCart {
+        background-color: var(--primaryOrange);
+        color: var(--primaryBlack);
+        height: 10vh;
+    }
+
+    .cartItem {
+        width: 60vw;
+        height: 10vh;
+        margin: 5vh auto 5vh auto;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        border: var(--primaryOrange) 0.2rem solid;
+        border-radius: 48px;
+        font-size: 1rem;
+        justify-content: center;
+        justify-self: center;
+        span {
+            margin: auto;
+        }
+    }
+
+    .itemQuantity {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.2rem;
+        font-family: "Montserrat";
+        color: var(--primaryBlack);
+        text-align: center;
+        margin: auto;
+    }
+
+    .deleteItem {
+        height: 2rem;
+        width: 2rem;
+        text-align: center;
+        background-color: white;
+        margin: auto;
+        border: none;
+        background-color: var(--primaryWhite);
+        transition: all 0.3s;
+    }
+
+    .totalPriceDiv {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        bottom: 0;
+        left: 0;
+        padding: 2rem 0 2rem 0;
+        position: fixed;
+        text-align: center;
+        width: 100%;
+        background-color: var(--primaryOrange);
+        color: var(--primaryBlack);
+    }
+
+    .paymentButton {
+        width: 50%;
+        background-color: var(--primaryWhite);
+        border: none;
+        border-radius: 8px;
+        font-family: "Montserrat";
+        transition: all 0.3s;
+    }
+}
+
+#navbar {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 500;
+}
+
+.addRemoveItemQuantity {
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    background-color: var(--primaryWhite);
+    border: 1px var(--primaryBlack) solid;
+    border-radius: 1rem;
+    border: none;
+}
+
+.addRemoveItemQuantity:active {
+    background-color: white;
+    transition: all 0.1s;
+}
+
+.paymentButton:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.deleteItem:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
