@@ -1,3 +1,5 @@
+"use strict";
+
 const listOfPositions = [
     {
         id: 1,
@@ -410,7 +412,6 @@ function loadCart() {
     });
 
     showProducts.forEach((element) => parentElement.append(element));
-    // document.querySelector(".totalPrice").innerHTML = parseInt(totalPrice);
 }
 
 function updateItems(addRemove) {
@@ -421,11 +422,7 @@ function updateItems(addRemove) {
                 for (const priceSize of item.price) {
                     if (element[1] === priceSize.size) {
                         parseInt(addRemove);
-                        if (
-                            parseInt(element[2]) > 0 ||
-                            parseInt(element[2]) === 0
-                        ) {
-                            // wadliwy warunek, jak zejdzie do zera to nie chce wrocic wyzej
+                        if (parseInt(element[2]) > 0) {
                             if (addRemove === 1) {
                                 totalPrice -=
                                     element[2] * parseInt(priceSize.price);
@@ -452,6 +449,17 @@ function updateItems(addRemove) {
                                     ".itemQuantity"
                                 ).innerHTML = element[2];
                             }
+                        } else if (
+                            parseInt(element[2]) === 0 &&
+                            addRemove === 1
+                        ) {
+                            totalPrice -=
+                                element[2] * parseInt(priceSize.price);
+                            element[2] = parseInt(element[2] + 1);
+                            totalPrice +=
+                                element[2] * parseInt(priceSize.price);
+                            document.querySelector(".itemQuantity").innerHTML =
+                                element[2];
                         }
                         parentElement.innerHTML = totalPrice;
                     }
