@@ -322,7 +322,13 @@ const listOfPositions = [
     },
 ];
 
-let addedProducts = [[listOfPositions[1].id, "M", 1]];
+let addedProducts = [
+    [listOfPositions[1].id, "M", 1],
+    [listOfPositions[5].id, "S", 1],
+    [listOfPositions[3].id, "L", 1],
+    [listOfPositions[10].id, "M", 1],
+    [listOfPositions[11].id, "M", 1],
+];
 let showProducts = [];
 let totalPrice = 0;
 
@@ -395,13 +401,13 @@ function loadCart() {
             if (item.id === element[0]) {
                 for (const priceSize of item.price) {
                     if (element[1] === priceSize.size) {
-                        createProductDiv.setAttribute("class", "cartItem");
-                        createProductDiv.innerHTML = `
-                        <span> ${item.name}, ${priceSize.size} </span>
-                        <span> Cena za sztukę: ${priceSize.price} zł </span>
-                        <span>${add1MoreProduct} <span class="itemQuantity"></span> ${remove1Product} ${deleteButton}</span>
+                        parentElement.innerHTML += `
+                            <div class="cartItem">
+                                <span> ${item.name}, ${priceSize.size} </span>
+                                <span> Cena za sztukę: ${priceSize.price} zł </span>
+                                <span>${add1MoreProduct} <span class="itemQuantity"></span> ${remove1Product} ${deleteButton}</span>
+                            </div>
                         `;
-                        showProducts.push(createProductDiv);
                         totalPrice += parseInt(priceSize.price);
                         document.querySelector(".totalPrice").innerHTML =
                             totalPrice;
@@ -410,8 +416,6 @@ function loadCart() {
             }
         }
     });
-
-    showProducts.forEach((element) => parentElement.append(element));
 }
 
 function updateItems(addRemove) {
